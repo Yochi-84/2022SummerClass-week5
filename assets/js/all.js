@@ -44,7 +44,8 @@ if (current.endsWith('index.html') || current === '/') {
       });
     }
   });
-  document.querySelector('#show-reply').addEventListener('click', function () {
+  document.querySelector('#show-reply').addEventListener('click', function (e) {
+    e.preventDefault();
     document.querySelector('.assignment-operate').classList.remove('show');
     document.querySelector('.assignment-reply').classList.add('show');
     document.querySelector('.assignment-footer').classList.add('d-none');
@@ -52,7 +53,8 @@ if (current.endsWith('index.html') || current === '/') {
 
     document.querySelector('.assignment').scrollTop = document.querySelector('.assignment').scrollHeight;
   });
-  document.querySelector('#cancel').addEventListener('click', function () {
+  document.querySelector('#cancel').addEventListener('click', function (e) {
+    e.preventDefault();
     document.querySelector('.assignment-operate').classList.add('show');
     document.querySelector('.assignment-reply').classList.remove('show');
     document.querySelector('.assignment-footer').classList.remove('d-none');
