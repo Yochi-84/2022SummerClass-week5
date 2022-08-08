@@ -2,7 +2,7 @@ const url = new URL(location.href);
 const current = url.pathname;
 
 // assignment
-if (current.endsWith('index.html') || current.endsWith === '/') {
+if (current.endsWith('index.html') || current.endsWith('/')) {
   // courses 選單選擇與收合
   Array.from(document.querySelectorAll('#courses-list li')).forEach(item => {
     item.addEventListener('click', function () {
