@@ -1,0 +1,104 @@
+.table {
+  thead {
+    line-height: 1.5;
+    font-weight: 700;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+    tr {
+      border-bottom: 1px solid var(--bs-gray-900);
+    }
+
+    :nth-child(1) {
+      width: 12.5%;
+    }
+    :nth-child(2) {
+      width: 30%;
+    }
+    :nth-child(3) {
+      width: 35.5%;
+    }
+    :nth-child(4) {
+      width: 13.5%;
+    }
+    :nth-child(5) {
+      width: 8.5%;
+    }
+
+    .sort-icon {
+      font-size: 18px;
+      color: var(--bs-success);
+      margin-left: 7px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }
+
+  tbody {
+    display: block;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: var(--bs-gray-400);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--bs-success);
+      border-radius: 2px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(var(--bs-success-rgb),0.8);
+    }
+    tr {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      border-bottom: 1px solid var(--bs-gray-400);
+
+      &:hover {
+        background-color: var(--bs-gray-100);
+      }
+
+      :nth-child(1) {
+        width: 12.5%;
+      }
+      :nth-child(2) {
+        width: 30%;
+      }
+      :nth-child(3) {
+        width: 35.5%;
+      }
+      :nth-child(4) {
+        width: 13.5%;
+      }
+      :nth-child(5) {
+        width: 8.5%;
+      }
+    }
+
+    td {
+      vertical-align: middle;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      color: var(--bs-gray-900);
+
+      span {
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          color: var(--bs-success);
+        }
+      }
+    }
+  }
+}

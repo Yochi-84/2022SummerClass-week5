@@ -1,0 +1,217 @@
+---
+title: ANSWER - Assignment
+layout: ./app/layout.ejs
+engine: ejs
+current: assignment
+---
+
+<header class="header">
+  <h4 class="page-title">Assignment</h4>
+  <div class="select me-auto">
+    <input type="checkbox" class="select-controller" id="courses" />
+    <label for="courses" class="select-controller-btn" id="courses-btn"
+      >All Courses<span class="material-symbols-outlined text-success pe-none"
+        >expand_more</span
+      ></label
+    >
+    <ul class="select-list" id="courses-list">
+      <li>All Courses</li>
+      <li>Chapter Assignment 1</li>
+      <li>Chapter Assignment 2</li>
+      <li>Final Assignment</li>
+    </ul>
+  </div>
+  <span class="material-symbols-outlined search me-6">search</span>
+  <span class="material-symbols-outlined notification"
+    >notifications_active</span
+  >
+</header>
+
+<main class="assignment">
+  <aside class="assignment-aside">
+    <div class="select category">
+      <input type="checkbox" class="select-controller" id="category" />
+      <label for="category" class="select-controller-btn" id="category-btn"
+        >All(4)<span class="material-symbols-outlined text-success pe-none"
+          >expand_more</span
+        ></label
+      >
+      <ul class="select-list" id="category-list">
+        <li>All(4)</li>
+        <li>Unread(3)</li>
+        <li>Read(1)</li>
+      </ul>
+    </div>
+    <ul class="assignment-list">
+      <li class="active">
+        <div class="assignment-row mb-1">
+          <p class="assignment-course">Chapter Assignment 2</p>
+          <span class="assignment-created">4 hrs ago</span>
+        </div>
+        <div class="assignment-row">
+          <h4 class="assignment-title">
+            Please check this file for me, thanks!
+          </h4>
+          <span class="assignment-creator">Emily Wang</span>
+        </div>
+      </li>
+      <li>
+        <div class="assignment-row mb-1">
+          <p class="assignment-course">Chapter Assignment 1</p>
+          <span class="assignment-created">12 hrs ago</span>
+        </div>
+        <div class="assignment-row">
+          <h4 class="assignment-title">My Homework</h4>
+          <span class="assignment-creator">David Xu</span>
+        </div>
+      </li>
+      <li>
+        <div class="assignment-row mb-1">
+          <p class="assignment-course">Final Assignment</p>
+          <span class="assignment-created">18 hrs ago</span>
+        </div>
+        <div class="assignment-row">
+          <h4 class="assignment-title">Have a problem with this…</h4>
+          <span class="assignment-creator">Tony Wei</span>
+        </div>
+      </li>
+      <li>
+        <div class="assignment-row mb-1">
+          <p class="assignment-course">Final Assignment</p>
+          <span class="assignment-created">19 hrs ago</span>
+        </div>
+        <div class="assignment-row">
+          <h4 class="assignment-title">Did I do it right?</h4>
+          <span class="assignment-creator">Christina Lin</span>
+        </div>
+      </li>
+    </ul>
+  </aside>
+  <section class="assignment-main">
+    <small class="assignment-count">2 comments</small>
+    <div class="assignment-content">
+      <header class="assignment-content-header">
+        <p class="assignment-course mb-1">Chapter Assignment 2 / HTML&CSS</p>
+        <h3 class="assignment-title">Please check this file for me, thanks!</h3>
+        <span class="material-symbols-outlined more">more_vert</span>
+      </header>
+      <div class="assignment-content-body">
+        <div class="assignment-block">
+          <img
+            src="./assets/images/emilywang.jpeg"
+            class="user-image"
+            alt="Emily Wang"
+          />
+          <div class="assignment-block-content underline">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div>
+                <h3 class="assignment-block-spokesperson">Emily Wang</h3>
+                <small class="assignment-block-time"
+                  >10:38 AM (4 hours ago)</small
+                >
+              </div>
+              <div class="editor">
+                <span class="material-symbols-outlined me-6">grade</span>
+                <span class="material-symbols-outlined">edit</span>
+              </div>
+            </div>
+            <div class="assignment-block-text">
+              Hi Teacher, the attached file is my homework of chapter 2. And
+              here comes a question: Why in the following code the height of the
+              <span>div</span> is bigger than the height of the
+              <span>img</span> ? There is a gap below the image, but it doesn’t
+              seems to be a padding/margin.<br />
+              What is the gap or extra space below image?
+            </div>
+            <a href="#" class="assignment-block-file" download="HW-2-David.zip"
+              ><span class="material-symbols-outlined">attach_file</span
+              >HW-2-David.zip</a
+            >
+          </div>
+        </div>
+        <div class="assignment-block assignment-operate show">
+          <img
+            src="./assets/images/andychen.jpeg"
+            class="user-image"
+            alt="Andy Chen"
+          />
+          <div class="assignment-block-content">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div>
+                <h3 class="assignment-block-spokesperson">Andy Chen (You)</h3>
+                <small class="assignment-block-time"
+                  >13:24 AM (1 hours ago)</small
+                >
+              </div>
+              <div class="editor">
+                <span class="material-symbols-outlined me-6 no-fill"
+                  >grade</span
+                >
+                <span class="material-symbols-outlined">edit</span>
+              </div>
+            </div>
+            <div class="assignment-block-text">
+              Hi David, by default, an image is rendered inline, like a letter
+              so it sits on the same line that a, b, c and d sit on. There is
+              space below that line for the descenders you find on letters like
+              g, j, p and q.<br /><br />
+              You can: <br /><br />
+              <ul>
+                <li>
+                  adjust the <span>vertical-align</span> of the image to
+                  position it elsewhere (e.g. the <span>middle</span> ) or
+                </li>
+                <li>change the <span>display</span> so it isn’t inline.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="assignment-reply">
+          <header class="assignment-reply-toolbar">
+            <span class="me-6 align-middle"
+              >Body Text<span class="material-symbols-outlined align-middle"
+                >arrow_drop_down</span
+              ></span
+            >
+            <span class="material-symbols-outlined me-6">format_bold</span>
+            <span class="material-symbols-outlined me-6">format_italic</span>
+            <span class="material-symbols-outlined me-6"
+              >format_list_bulleted</span
+            >
+            <span class="material-symbols-outlined me-6"
+              >format_list_numbered</span
+            >
+            <span class="material-symbols-outlined me-6">image</span>
+            <span class="material-symbols-outlined me-6">link</span>
+            <span class="material-symbols-outlined me-6">code</span>
+          </header>
+          <form action="#">
+            <textarea
+              name="reply"
+              class="assignment-reply-input"
+              id="reply"
+              rows="10"
+              placeholder="Reply an answer..."
+            ></textarea>
+            <div class="assignment-reply-btn">
+              <a href="#" class="button button-outline-success me-2" id="cancel">Cancel</a>
+              <a href="#" class="button button-success" id="reply">Reply</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="assignment-footer">
+  <div class="assignment-navigate">
+    <a href="#"
+      ><span class="material-symbols-outlined me-6">navigate_before</span></a
+    >
+    <a href="#"><span class="material-symbols-outlined">navigate_next</span></a>
+  </div>
+  <div>
+    <a href="#" class="button button-outline-success me-4">Mark as read</a>
+    <a href="#" class="button button-success" id="show-reply">Reply</a>
+  </div>
+</footer>

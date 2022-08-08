@@ -1,0 +1,146 @@
+.nav-controller:checked ~ .navigation {
+  max-width: 0;
+  padding: 2rem 0;
+}
+
+.nav-controller:checked {
+  & ~ .board{
+    max-width: 100%;
+  }
+
+  & ~ .nav-controller-btn {
+    left: 0;
+
+    span {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.view {
+  position: relative;
+
+  .nav-controller-btn {
+    width: auto;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 296px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--bs-success);
+    color: #fff;
+    padding: 16px 1px 16px 0;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: 0.8s;
+    user-select: none;
+
+    &:hover {
+      background-color: rgba(var(--bs-success-rgb),0.7);
+    }
+
+    span {
+      transition: inherit;
+    }
+  }
+}
+
+.navigation {
+  max-width: 296px;
+  background-color: var(--bs-gray-100);
+  padding: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+
+  transition: 0.8s;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+  }
+
+  &-list {
+    width: 100%;
+    li {
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+
+      a {
+        padding: 4px 32px;
+        display: block;
+        white-space: nowrap;
+      }
+
+      span {
+        vertical-align: middle;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      &:hover {
+
+        &::after {
+          background-color: var(--bs-gray-400);
+        }
+      }
+
+      &.active {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 4px;
+          left: 0;
+          top: 0;
+          background-color: var(--bs-success);
+        }
+
+        a {
+          color: var(--bs-success);
+        }
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      color: #000;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    // 沒加 width: 100% 在選單收合時位置會往上跳，原因不明
+    width: 100%;
+
+    h3 {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--bs-gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--bs-gray-600);
+    }
+  }
+}

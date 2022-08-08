@@ -1,0 +1,143 @@
+---
+title: ANSWER - Admin
+layout: ./app/layout.ejs
+engine: ejs
+current: admin
+---
+
+<header class="header">
+  <h4 class="page-title">Assignment</h4>
+  <a href="#" class="me-auto admin-add"><span class="material-symbols-outlined me-2">add</span>Add New Admin</a>
+  <span class="material-symbols-outlined search me-6">search</span>
+  <span class="material-symbols-outlined notification">notifications_active</span>
+</header>
+
+<main class="admin">
+  <section>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID<span class="material-symbols-outlined sort-icon">arrow_downward</span></th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Verified</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+  <ul class="pagination">
+    <li>
+      <a href="#"><span class="material-symbols-outlined">navigate_before</span></a>
+    </li>
+    <li class="active">
+      <a href="#">1</a>
+    </li>
+    <li>
+      <a href="#">2</a>
+    </li>
+    <li>
+      <a href="#">3</a>
+    </li>
+    <li>
+      <a href="#"><span class="material-symbols-outlined">navigate_next</span></a>
+    </li>
+  </ul>
+
+  <section class="admin-detail">
+    <span class="material-symbols-outlined close-btn">close</span>
+    <img src="./assets/images/emir.jpeg" alt="Emir Wicks">
+    <ul class="admin-info">
+      <li class="admin-detail-id"></li>
+      <li class="admin-detail-identity"></li>
+      <li class="admin-detail-name"></li>
+      <li class="admin-detail-email"></li>
+      <li class="admin-detail-verify">
+        <span class="tag"></span><span class="material-symbols-outlined more">expand_more</span>
+      </li>
+      <li class="admin-detail-operate">
+        <a href="#" class="button button-outline-danger me-4">Deactivate</a>
+        <a href="#" class="button button-success" id="edit">Edit</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="info-form" data-role="edit">
+    <span class="material-symbols-outlined close-btn">close</span>
+    <h2 class="title mb-8">Edit Admin</h2>
+    <form action="#">
+      <div class="block">
+        <h3>Account</h3>
+        <label for="name" class="name mb-1">Name</label>
+        <input type="text" id="name" class="mb-4">
+        <label for="name" class="email mb-1">Email</label>
+        <input type="email" id="email">
+      </div>
+      <div class="block pt-6">
+        <h3>Verification</h3>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <p class="verified">
+            <span class="material-symbols-outlined me-2"></span>Verified
+          </p>
+          <small class="verifiedTime"></small>
+        </div>
+        <a href="#" class="button button-outline-success button-fluid" id="send-mail">Send Verification Mail</a>
+      </div>
+      <div class="pt-6">
+        <h3>Access Level</h3>
+        <div class="access"><span class="identity">Admin</span><span class="material-symbols-outlined pe-none">expand_more</span>
+        </div>
+        <ul class="access-list">
+          <li>Admin</li>
+          <li>Visitor</li>
+        </ul>
+      </div>
+      <footer class="footer">
+        <a href="#" class="button button-outline-success me-4" id="cancel">Cancel</a>
+        <a href="#" class="button button-success" id="submit">Update</a>
+      </footer>
+    </form>
+  </section>
+
+  <section class="info-form" data-role="add">
+    <span class="material-symbols-outlined close-btn">close</span>
+    <h2 class="title mb-8">New Admin</h2>
+    <form action="#">
+      <div class="block">
+        <h3>Account</h3>
+        <label for="name" class="name mb-1">Name</label>
+        <input type="text" id="name" class="mb-4">
+        <label for="name" class="email mb-1">Email</label>
+        <input type="email" id="email">
+      </div>
+      <div class="block pt-6">
+        <h3>Verification</h3>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <p class="verified">
+            <span class="material-symbols-outlined text-danger me-2">warning</span>Unverified
+          </p>
+          <small class="verifiedTime"></small>
+        </div>
+        <a href="#" class="button button-outline-success button-fluid" id="send-mail">Send Verification Mail</a>
+      </div>
+      <div class="pt-6">
+        <h3>Access Level</h3>
+        <div class="access"><span class="identity">-Choose access level-</span><span class="material-symbols-outlined pe-none">expand_more</span>
+        </div>
+        <ul class="access-list">
+          <li>Admin</li>
+          <li>Visitor</li>
+        </ul>
+      </div>
+      <footer class="footer">
+        <a href="#" class="button button-outline-success me-4" id="cancel">Cancel</a>
+        <a href="#" class="button button-success" id="submit">Add</a>
+      </footer>
+    </form>
+  </section>
+
+</main>
+
+<div class="mask"></div>

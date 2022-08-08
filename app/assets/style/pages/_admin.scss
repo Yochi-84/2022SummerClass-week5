@@ -1,0 +1,122 @@
+.admin {
+  padding: 0 32px;
+
+  &-add {
+    display: flex;
+    align-items: center;
+    color: var(--bs-gray-900);
+    font-weight: 700;
+    line-height: 1.5;
+    transition: 0.3s;
+
+    &:hover {
+      color: var(--bs-success);
+    }
+
+    span {
+      color: var(--bs-success);
+    }
+  }
+
+  .table {
+    margin-bottom: 63px;
+  }
+
+  tbody {
+    height: calc(100vh - 277.5px);
+  }
+
+  &-detail {
+    column-gap: 24px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 32px;
+    z-index: 6;
+    color: var(--bs-gray-900);
+    line-height: 19px;
+    border-radius: 2px;
+    overflow-y: auto;
+    display: none;
+    max-height: calc(100vh - 64px);
+
+    &.show {
+      display: flex;
+    }
+
+    img {
+      width: 141px;
+      height: 141px;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 32px;
+      top: 32px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: var(--bs-success);
+      }
+    }
+
+    &-id {
+      margin-bottom: 0.5rem;
+    }
+
+    &-name {
+      line-height: 29px;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    &-email {
+      font-size: 14px;
+      line-height: 17px;
+      color: var(--bs-gray-600);
+      margin-bottom: 1rem;
+    }
+
+    &-verify {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      line-height: 17px;
+      min-width: 300px;
+
+      .tag {
+        background-color: var(--bs-gray-100);
+        padding: 4px 8px;
+      }
+
+      .more {
+        color: var(--bs-success);
+        cursor: pointer;
+        transition: 0.1s;
+      }
+
+      &.open {
+        .more {
+          transform: rotate(180deg);
+        }
+
+        & + .admin-detail-operate {
+          max-height: 100%;
+          padding-top: 2rem;
+        }
+      }
+    }
+
+    &-operate {
+      overflow: hidden;
+      max-height: 0;
+      transition: 0.1s linear;
+      padding-top: 0;
+    }
+  }
+}
