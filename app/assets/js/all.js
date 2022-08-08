@@ -244,7 +244,6 @@ if (current.endsWith('admin.html')) {
           item.addEventListener('click', function () {
             currentView.querySelector('.identity').innerText = `${this.innerText}`;
             currentView.querySelector('.access-list').classList.toggle('open');
-            currentView.querySelector('.assignment form').scrollTop = currentView.querySelector('.assignment form').scrollHeight;
           });
         })
       }
