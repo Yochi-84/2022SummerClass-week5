@@ -59,7 +59,8 @@
     line-height: 17px;
   }
 
-  input {
+  input[type="text"],
+  input[type="email"] {
     width: 100%;
     border: 0;
     line-height: 19px;
@@ -88,6 +89,7 @@
   }
 
   .access {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -97,6 +99,11 @@
     cursor: pointer;
 
     &-list {
+      position: absolute;
+      width: calc(100% + 2px);
+      bottom: 0;
+      left: -1px;
+      transform: translateY(100%);
       border-style: solid;
       border-color: var(--bs-gray-900);
       border-width: 0;
@@ -105,11 +112,10 @@
       border-radius: 0 0 2px 2px;
       overflow: hidden;
       max-height: 0;
-      transition: max-height 0.1s;
 
       &.open {
         border-width: 1px;
-        max-height: 100%;
+        max-height: fit-content;
       }
 
       li {
@@ -123,6 +129,28 @@
         }
       }
     }
+
+    &-custom {
+      li {
+        display: flex;
+        align-items: center;
+        color: var(--bs-gray-900);
+      }
+
+      input[type="checkbox"] {
+        accent-color: var(--bs-success);
+      }
+
+      label {
+        text-transform: capitalize;
+      }
+    }
+
+  }
+
+  .deactivate {
+    display: flex;
+    align-items: center;
   }
 
   .footer {

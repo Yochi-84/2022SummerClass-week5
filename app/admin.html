@@ -17,7 +17,7 @@ current: admin
     <table class="table">
       <thead>
         <tr>
-          <th>ID<span class="material-symbols-outlined sort-icon">arrow_downward</span></th>
+          <th>ID<span class="material-symbols-outlined sort-icon" id="id-sort">arrow_downward</span></th>
           <th>Name</th>
           <th>Email</th>
           <th>Verified</th>
@@ -58,7 +58,7 @@ current: admin
         <span class="tag"></span><span class="material-symbols-outlined more">expand_more</span>
       </li>
       <li class="admin-detail-operate">
-        <a href="#" class="button button-outline-danger me-4">Deactivate</a>
+        <a href="#" class="button button-outline-danger me-4" id="detail-deactivate">Deactivate</a>
         <a href="#" class="button button-success" id="edit">Edit</a>
       </li>
     </ul>
@@ -85,14 +85,50 @@ current: admin
         </div>
         <a href="#" class="button button-outline-success button-fluid" id="send-mail">Send Verification Mail</a>
       </div>
-      <div class="pt-6">
+      <div class="block pt-6">
         <h3>Access Level</h3>
-        <div class="access"><span class="identity">Admin</span><span class="material-symbols-outlined pe-none">expand_more</span>
+        <div class="access">
+          <span class="identity">Admin</span><span class="material-symbols-outlined pe-none">expand_more</span>
+          <ul class="access-list">
+            <li>Admin</li>
+            <li>Visitor</li>
+          </ul>
         </div>
-        <ul class="access-list">
-          <li>Admin</li>
-          <li>Visitor</li>
+      </div>
+      <div class="block pt-6">
+        <h3>Custom Access</h3>
+        <ul class="access-custom">
+          <li class="mb-4">
+            <input type="checkbox" id="lecture" class="me-2">
+            <label for="lecture">lecture</label>
+          </li>
+          <li class="mb-4">
+            <input type="checkbox" id="coupon" class="me-2">
+            <label for="coupon">coupon</label>
+          </li>
+          <li class="mb-4">
+            <input type="checkbox" id="message" class="me-2">
+            <label for="message">message</label>
+          </li>
+          <li class="mb-4">
+            <input type="checkbox" id="setting" class="me-2">
+            <label for="setting">setting</label>
+          </li>
+          <li>
+            <input type="checkbox" id="taskMenu" class="me-2">
+            <label for="taskMenu">task menu</label>
+          </li>
         </ul>
+      </div>
+      <div class="pt-6">
+        <h3>Deactivate Account</h3>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <p class="deactivate text-danger">
+            <span class="material-symbols-outlined me-2">warning</span>This cannot be undone!
+          </p>
+          <small class="verifiedTime"></small>
+        </div>
+        <a href="#" class="button button-outline-danger button-fluid" id="deactivate">Deactivate This  Account</a>
       </div>
       <footer class="footer">
         <a href="#" class="button button-outline-success me-4" id="cancel">Cancel</a>
@@ -122,13 +158,39 @@ current: admin
         </div>
         <a href="#" class="button button-outline-success button-fluid" id="send-mail">Send Verification Mail</a>
       </div>
-      <div class="pt-6">
+      <div class="block pt-6">
         <h3>Access Level</h3>
-        <div class="access"><span class="identity">-Choose access level-</span><span class="material-symbols-outlined pe-none">expand_more</span>
+        <div class="access">
+          <span class="identity">-Choose access level-</span><span class="material-symbols-outlined pe-none">expand_more</span>
+          <ul class="access-list">
+            <li>Admin</li>
+            <li>Visitor</li>
+          </ul>
         </div>
-        <ul class="access-list">
-          <li>Admin</li>
-          <li>Visitor</li>
+      </div>
+      <div class="block pt-6">
+        <h3>Custom Access</h3>
+        <ul class="access-custom">
+          <li class="mb-4">
+            <input type="checkbox" id="a-lecture" class="me-2">
+            <label for="a-lecture">lecture</label>
+          </li>
+          <li class="mb-4">
+            <input type="checkbox" id="a-coupon" class="me-2">
+            <label for="a-coupon">coupon</label>
+          </li>
+          <li class="mb-4">
+            <input type="checkbox" id="a-message" class="me-2">
+            <label for="a-message">message</label>
+          </li>
+          <li class="mb-4">
+            <input type="checkbox" id="a-setting" class="me-2">
+            <label for="a-setting">setting</label>
+          </li>
+          <li>
+            <input type="checkbox" id="a-taskMenu" class="me-2">
+            <label for="a-taskMenu">task menu</label>
+          </li>
         </ul>
       </div>
       <footer class="footer">

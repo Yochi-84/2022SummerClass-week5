@@ -55,7 +55,7 @@ if (current.endsWith('index.html') || current.endsWith('/')) {
     document.querySelector('.assignment').classList.add('show-reply');
 
     // scrollbar 置底
-		document.querySelector('.assignment').scrollTop = document.querySelector('.assignment').scrollHeight;
+    document.querySelector('.assignment').scrollTop = document.querySelector('.assignment').scrollHeight;
   });
 
   document.querySelector('#cancel').addEventListener('click', function (e) {
@@ -69,11 +69,11 @@ if (current.endsWith('index.html') || current.endsWith('/')) {
 }
 
 // admin
-
 // 第一次開啟判定
 let detailFirstOpen = true;
 let editFirstOpen = true;
 let addFirstOpen = true;
+
 if (current.endsWith('admin.html')) {
   let admin = [
     {
@@ -82,7 +82,14 @@ if (current.endsWith('admin.html')) {
       name: 'Emir Wicks',
       email: 'emir.wicks@mail.com',
       verified: true,
-      verifiedTime: '2022/2/18'
+      verifiedTime: '2022/2/18',
+      accessCustom: {
+        lecture: false,
+        coupon: true,
+        message: false,
+        setting: false,
+        taskMenu: true
+      }
     },
     {
       id: 2,
@@ -90,7 +97,14 @@ if (current.endsWith('admin.html')) {
       name: 'Zaina Goldsmith',
       email: 'zaina.goldsmith@mail.com',
       verified: false,
-      verifiedTime: null
+      verifiedTime: null,
+      accessCustom: {
+        lecture: true,
+        coupon: true,
+        message: false,
+        setting: false,
+        taskMenu: false
+      }
     },
     {
       id: 3,
@@ -98,7 +112,14 @@ if (current.endsWith('admin.html')) {
       name: 'Mahima Lopez',
       email: 'mahima.lopez@mail.com',
       verified: true,
-      verifiedTime: '2022/3/12'
+      verifiedTime: '2022/3/12',
+      accessCustom: {
+        lecture: false,
+        coupon: false,
+        message: false,
+        setting: false,
+        taskMenu: true
+      }
     },
     {
       id: 4,
@@ -106,7 +127,14 @@ if (current.endsWith('admin.html')) {
       name: 'Pharrell Murray',
       email: 'pharrell.murray@mail.com',
       verified: true,
-      verifiedTime: '2022/3/14'
+      verifiedTime: '2022/3/14',
+      accessCustom: {
+        lecture: true,
+        coupon: true,
+        message: true,
+        setting: false,
+        taskMenu: true
+      }
     },
     {
       id: 5,
@@ -114,7 +142,14 @@ if (current.endsWith('admin.html')) {
       name: 'Annika Mcbride',
       email: 'annika.mcbride@mail.com',
       verified: true,
-      verifiedTime: '2022/3/29'
+      verifiedTime: '2022/3/29',
+      accessCustom: {
+        lecture: false,
+        coupon: true,
+        message: false,
+        setting: true,
+        taskMenu: true
+      }
     },
     {
       id: 6,
@@ -122,7 +157,14 @@ if (current.endsWith('admin.html')) {
       name: 'Fatimah Clark',
       email: 'fatimah.clark@mail.com',
       verified: true,
-      verifiedTime: '2022/4/2'
+      verifiedTime: '2022/4/2',
+      accessCustom: {
+        lecture: false,
+        coupon: true,
+        message: false,
+        setting: false,
+        taskMenu: false
+      }
     },
     {
       id: 7,
@@ -130,7 +172,14 @@ if (current.endsWith('admin.html')) {
       name: 'Klaudia Rhodes',
       email: 'klaudia.rhodes@mail.com',
       verified: false,
-      verifiedTime: null
+      verifiedTime: null,
+      accessCustom: {
+        lecture: false,
+        coupon: true,
+        message: true,
+        setting: true,
+        taskMenu: true
+      }
     },
     {
       id: 8,
@@ -138,7 +187,14 @@ if (current.endsWith('admin.html')) {
       name: 'Tillie Lucero',
       email: 'tillie.lucero@mail.com',
       verified: true,
-      verifiedTime: '2022/4/16'
+      verifiedTime: '2022/4/16',
+      accessCustom: {
+        lecture: true,
+        coupon: false,
+        message: false,
+        setting: false,
+        taskMenu: true
+      }
     },
     {
       id: 9,
@@ -146,7 +202,14 @@ if (current.endsWith('admin.html')) {
       name: 'Sabrina Stephenson',
       email: 'sabrina.stephenson@mail.com',
       verified: true,
-      verifiedTime: '2022/5/1'
+      verifiedTime: '2022/5/1',
+      accessCustom: {
+        lecture: false,
+        coupon: false,
+        message: false,
+        setting: true,
+        taskMenu: true
+      }
     },
     {
       id: 10,
@@ -154,7 +217,14 @@ if (current.endsWith('admin.html')) {
       name: 'Annie Smith',
       email: 'annie.smith@mail.com',
       verified: true,
-      verifiedTime: '2022/5/20'
+      verifiedTime: '2022/5/20',
+      accessCustom: {
+        lecture: true,
+        coupon: true,
+        message: false,
+        setting: true,
+        taskMenu: false
+      }
     },
   ];
 
@@ -190,6 +260,8 @@ if (current.endsWith('admin.html')) {
           document.querySelector('.admin-detail-verify .more').addEventListener('click', toggleMore);
         }
 
+        document.querySelector('#detail-deactivate').addEventListener('click', deleteAdmin);
+
         //有綁參數，只載入一次會綁死
         document.querySelector('.admin-detail #edit').addEventListener('click', toggleView);
 
@@ -211,6 +283,20 @@ if (current.endsWith('admin.html')) {
           document.querySelector('.admin-detail-verify').classList.toggle('open');
         }
 
+        function deleteAdmin() {
+          let currentIndex = 0;
+          for (let i = 0; i <= admin.length; i++) {
+            if (admin[i].id === info.id) {
+              currentIndex = i;
+              break;
+            }
+          }
+
+          admin.splice(currentIndex, 1);
+          updateTable();
+          closeView();
+        }
+
         function toggleView() {
           document.querySelector('.admin-detail').classList.remove('show');
           showEdit(id);
@@ -220,6 +306,7 @@ if (current.endsWith('admin.html')) {
           document.querySelector('.mask').classList.remove('show');
           document.querySelector('.admin-detail').classList.remove('show');
           document.querySelector('.admin-detail #edit').removeEventListener('click', toggleView);
+          document.querySelector('#detail-deactivate').removeEventListener('click', deleteAdmin);
         }
 
         detailFirstOpen = false;
@@ -227,81 +314,107 @@ if (current.endsWith('admin.html')) {
     })
 
     // 編輯頁
-    Array.from(document.querySelectorAll('.edit')).forEach(element => element.addEventListener('click', showEdit));
+    Array.from(document.querySelectorAll('.edit')).forEach(element => element.addEventListener('click',
+      function () {
+        let id = Number(arguments[0]) > 0 ? arguments[0] : this.getAttribute('data-id');
+        const info = admin.filter(item => item.id === Number(id))[0];
+        const currentView = document.querySelector('[data-role="edit"]');
 
-    function showEdit() {
-      let id = Number(arguments[0]) >0 ? arguments[0] : this.getAttribute('data-id');
-      const info = admin.filter(item => item.id === Number(id))[0];
-      const currentView = document.querySelector('[data-role="edit"]');
+        currentView.querySelector('.close-btn').addEventListener('click', closeView);
+        currentView.querySelector('.access').addEventListener('click', openList);
+        currentView.querySelector('#cancel').addEventListener('click', closeView);
+        currentView.querySelector('#submit').addEventListener('click', updateAdmin);
+        currentView.querySelector("#deactivate").addEventListener('click', deleteAdmin);
 
-      currentView.querySelector('.close-btn').addEventListener('click', closeView);
-      currentView.querySelector('#submit').addEventListener('click', updateAdmin);
-      currentView.querySelector('.access').addEventListener('click', openList);
-      currentView.querySelector('#cancel').addEventListener('click', closeView);
-
-      // access 選單控制
-      // 只在第一次開啟時加入監聽
-      if (editFirstOpen) {
-        Array.from(currentView.querySelectorAll('.access-list li')).forEach(item => {
-          item.addEventListener('click', function () {
-            currentView.querySelector('.identity').innerText = `${this.innerText}`;
-            currentView.querySelector('.access-list').classList.toggle('open');
-          });
-        })
-      }
-
-      // 寫入資料;
-      currentView.querySelector('#name').value = `${info.name}`;
-      currentView.querySelector('#email').value = `${info.email}`;
-      currentView.querySelector('.identity').innerText = `${info.identity}`;
-      if (info.verified) {
-        currentView.querySelector('.verified').innerHTML = `<span class="material-symbols-outlined me-2  text-success">check_circle</span>Verified`;
-        currentView.querySelector('.verifiedTime').classList.remove('d-none');
-        currentView.querySelector('.verifiedTime').innerText = `${info.verifiedTime}`;
-        currentView.querySelector('#send-mail').classList.remove('disabled');
-      } else {
-        currentView.querySelector('.verified').innerHTML = `<span class="material-symbols-outlined me-2 text-danger">warning</span>Unverified`;
-        currentView.querySelector('.verifiedTime').classList.add('d-none');
-        currentView.querySelector('#send-mail').classList.add('disabled');
-      }
-
-      document.querySelector('.mask').classList.add('show');
-      currentView.classList.add('show');
-
-      function openList() {
-        currentView.querySelector('.access-list').classList.toggle('open');
-      }
-
-      function updateAdmin() {
-        let currentIndex = 0;
-        for (let i = 0; i <= admin.length; i++) {
-          if (admin[i].id === info.id) {
-            currentIndex = i;
-            break;
-          }
+        // access 選單控制
+        // 只在第一次開啟時加入監聽
+        if (editFirstOpen) {
+          Array.from(currentView.querySelectorAll('.access-list li')).forEach(item => {
+            item.addEventListener('click', function (e) {
+              e.stopPropagation();
+              currentView.querySelector('.identity').innerText = `${this.innerText}`;
+              currentView.querySelector('.access-list').classList.toggle('open');
+            });
+          })
         }
 
-        admin[currentIndex].name = currentView.querySelector('#name').value;
-        admin[currentIndex].email = currentView.querySelector('#email').value;
-        admin[currentIndex].identity = currentView.querySelector('.identity').innerText;
+        // 寫入資料;
+        currentView.querySelector('#name').value = `${info.name}`;
+        currentView.querySelector('#email').value = `${info.email}`;
+        currentView.querySelector('.identity').innerText = `${info.identity}`;
+        if (info.verified) {
+          currentView.querySelector('.verified').innerHTML = `<span class="material-symbols-outlined me-2  text-success">check_circle</span>Verified`;
+          currentView.querySelector('.verifiedTime').classList.remove('d-none');
+          currentView.querySelector('.verifiedTime').innerText = `${info.verifiedTime}`;
+          currentView.querySelector('#send-mail').classList.remove('disabled');
+        } else {
+          currentView.querySelector('.verified').innerHTML = `<span class="material-symbols-outlined me-2 text-danger">warning</span>Unverified`;
+          currentView.querySelector('.verifiedTime').classList.add('d-none');
+          currentView.querySelector('#send-mail').classList.add('disabled');
+        }
+        Object.entries(info.accessCustom).forEach(item => {
+          if(item[1]) {
+            currentView.querySelector(`#${item[0]}`).checked = true;
+          } else {
+            currentView.querySelector(`#${item[0]}`).checked = false;
+          }
+        })
 
-        updateTable();
-        closeView();
-      }
+        document.querySelector('.mask').classList.add('show');
+        currentView.classList.add('show');
 
-      function closeView() {
-        document.querySelector('.mask').classList.remove('show');
-        currentView.classList.remove('show');
+        // scrollbar 置頂
+        currentView.querySelector('form').scrollTop = 0;
 
-        // 移除監聽，減少不必要的效能損耗
-        currentView.querySelector('.close-btn').removeEventListener('click', closeView);
-        currentView.querySelector('.access').removeEventListener('click', openList);
-        currentView.querySelector('#cancel').removeEventListener('click', closeView);
-        currentView.querySelector('#submit').removeEventListener('click', updateAdmin);
-      }
+        function openList() {
+          currentView.querySelector('.access-list').classList.toggle('open');
+        }
 
-      editFirstOpen = false;
-    }
+        function updateAdmin() {
+          let currentIndex = 0;
+          for (let i = 0; i <= admin.length; i++) {
+            if (admin[i].id === info.id) {
+              currentIndex = i;
+              break;
+            }
+          }
+
+          admin[currentIndex].name = currentView.querySelector('#name').value;
+          admin[currentIndex].email = currentView.querySelector('#email').value;
+          admin[currentIndex].identity = currentView.querySelector('.identity').innerText;
+
+          updateTable();
+          closeView();
+        }
+
+        function deleteAdmin() {
+          let currentIndex = 0;
+          for (let i = 0; i <= admin.length; i++) {
+            if (admin[i].id === info.id) {
+              currentIndex = i;
+              break;
+            }
+          }
+
+          admin.splice(currentIndex, 1);
+          updateTable();
+          closeView();
+        }
+
+        function closeView() {
+          document.querySelector('.mask').classList.remove('show');
+          currentView.classList.remove('show');
+
+          // 移除監聽，減少不必要的效能損耗
+          currentView.querySelector('.close-btn').removeEventListener('click', closeView);
+          currentView.querySelector('.access').removeEventListener('click', openList);
+          currentView.querySelector('#cancel').removeEventListener('click', closeView);
+          currentView.querySelector('#submit').removeEventListener('click', updateAdmin);
+          currentView.querySelector('#deactivate').removeEventListener('click', deleteAdmin);
+        }
+
+        editFirstOpen = false;
+      }));
 
     // 新增頁
     document.querySelector('.admin-add').addEventListener('click', function (e) {
@@ -315,7 +428,8 @@ if (current.endsWith('admin.html')) {
         currentView.querySelector('#submit').addEventListener('click', newAdmin);
 
         Array.from(currentView.querySelectorAll('.access-list li')).forEach(item => {
-          item.addEventListener('click', function () {
+          item.addEventListener('click', function (e) {
+            e.stopPropagation();
             currentView.querySelector('.identity').innerText = `${this.innerText}`;
             currentView.querySelector('.access-list').classList.toggle('open');
           })
@@ -325,18 +439,28 @@ if (current.endsWith('admin.html')) {
       document.querySelector('.mask').classList.add('show');
       currentView.classList.add('show');
 
+      // scrollbar 置頂
+      currentView.querySelector('form').scrollTop = 0;
+
       function openList() {
         currentView.querySelector('.access-list').classList.toggle('open');
       }
 
       function newAdmin() {
         const newAdmin = {};
-        newAdmin.id = Number(admin[admin.length - 1].id) + 1;
+        newAdmin.id = admin.length - 1 > 0 ? Number(admin[admin.length - 1].id) + 1 : 1;
         newAdmin.identity = currentView.querySelector('.identity').innerText;
         newAdmin.name = currentView.querySelector('#name').value;
         newAdmin.email = currentView.querySelector('#email').value;
         newAdmin.verified = false;
         newAdmin.verifiedTime = null;
+        newAdmin.accessCustom = {
+          lecture: currentView.querySelector('#a-lecture').checked,
+          coupon: currentView.querySelector('#a-coupon').checked,
+          message: currentView.querySelector('#a-message').checked,
+          setting: currentView.querySelector('#a-setting').checked,
+          taskMenu: currentView.querySelector('#a-taskMenu').checked,
+        };
 
         admin.push(newAdmin);
 
@@ -347,9 +471,14 @@ if (current.endsWith('admin.html')) {
       function closeView() {
         document.querySelector('.mask').classList.remove('show');
         currentView.classList.remove('show');
+
+        // 表單初始化
         currentView.querySelector('#name').value = '';
         currentView.querySelector('#email').value = '';
         currentView.querySelector('.identity').innerText = '-Choose access level-';
+        Array.from(currentView.querySelectorAll('.access-custom [type="checkbox"]')).forEach(item => {
+          item.checked = false;
+        })
       }
 
       addFirstOpen = false;
