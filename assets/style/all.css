@@ -223,7 +223,7 @@ img {
   background-color: #fff;
   border-color: currentColor;
   color: var(--bs-gray-400);
-  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .pagination {
@@ -659,7 +659,8 @@ img {
   line-height: 17px;
 }
 
-.info-form input {
+.info-form input[type="text"],
+.info-form input[type="email"] {
   width: 100%;
   border: 0;
   line-height: 19px;
@@ -667,7 +668,8 @@ img {
   background-color: var(--bs-gray-100);
 }
 
-.info-form input:focus {
+.info-form input[type="text"]:focus,
+.info-form input[type="email"]:focus {
   outline-color: var(--bs-success);
 }
 
@@ -692,6 +694,7 @@ img {
 }
 
 .info-form .access {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -708,6 +711,13 @@ img {
 }
 
 .info-form .access-list {
+  position: absolute;
+  width: calc(100% + 2px);
+  bottom: 0;
+  left: -1px;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
   border-style: solid;
   border-color: var(--bs-gray-900);
   border-width: 0;
@@ -716,14 +726,13 @@ img {
   border-radius: 0 0 2px 2px;
   overflow: hidden;
   max-height: 0;
-  -webkit-transition: max-height 0.1s;
-  -o-transition: max-height 0.1s;
-  transition: max-height 0.1s;
 }
 
 .info-form .access-list.open {
   border-width: 1px;
-  max-height: 100%;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 
 .info-form .access-list li {
@@ -737,6 +746,33 @@ img {
 .info-form .access-list li:hover {
   background-color: var(--bs-success);
   color: #fff;
+}
+
+.info-form .access-custom li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--bs-gray-900);
+}
+
+.info-form .access-custom input[type="checkbox"] {
+  accent-color: var(--bs-success);
+}
+
+.info-form .access-custom label {
+  text-transform: capitalize;
+}
+
+.info-form .deactivate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .info-form .footer {
