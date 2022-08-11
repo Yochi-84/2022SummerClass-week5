@@ -70,25 +70,6 @@ img {
   font-variation-settings: 'FILL' 1;
 }
 
-.page-title {
-  margin-right: 50px;
-  color: var(--bs-gray-900);
-  font-weight: 700;
-  line-height: 33px;
-  font-size: 24px;
-}
-
-.header {
-  margin-bottom: 44px;
-  padding: 0 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .select {
   cursor: pointer;
   position: relative;
@@ -479,6 +460,25 @@ img {
   padding: 2rem 0;
 }
 
+.page-title {
+  margin-right: 50px;
+  color: var(--bs-gray-900);
+  font-weight: 700;
+  line-height: 33px;
+  font-size: 24px;
+}
+
+.header {
+  margin-bottom: 44px;
+  padding: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .table thead {
   line-height: 1.5;
   font-weight: 700;
@@ -671,6 +671,26 @@ img {
 .info-form input[type="text"]:focus,
 .info-form input[type="email"]:focus {
   outline-color: var(--bs-success);
+}
+
+.info-form input[type="text"]:-moz-read-only, .info-form input[type="email"]:-moz-read-only {
+  background-color: var(--bs-gray-100);
+  cursor: default;
+}
+
+.info-form input[type="text"]:read-only,
+.info-form input[type="email"]:read-only {
+  background-color: var(--bs-gray-100);
+  cursor: default;
+}
+
+.info-form input[type="text"]:-moz-read-only:focus, .info-form input[type="email"]:-moz-read-only:focus {
+  outline: none;
+}
+
+.info-form input[type="text"]:read-only:focus,
+.info-form input[type="email"]:read-only:focus {
+  outline: none;
 }
 
 .info-form .block {
@@ -1011,7 +1031,7 @@ img {
   margin-bottom: 1rem;
 }
 
-.assignment-block-text span {
+.assignment-block-text code {
   font-family: "Roboto Mono", serif;
   background-color: var(--bs-gray-100);
   color: var(--bs-success);
