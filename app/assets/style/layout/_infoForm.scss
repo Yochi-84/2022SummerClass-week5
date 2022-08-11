@@ -70,6 +70,15 @@
     &:focus {
       outline-color: var(--bs-success);
     }
+
+    &:read-only {
+      background-color: var(--bs-gray-100);
+      cursor: default;
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 
   .block {

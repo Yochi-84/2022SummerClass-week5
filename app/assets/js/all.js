@@ -450,8 +450,8 @@ if (current.endsWith('admin.html')) {
         const newAdmin = {};
         newAdmin.id = admin.length - 1 > 0 ? Number(admin[admin.length - 1].id) + 1 : 1;
         newAdmin.identity = currentView.querySelector('.identity').innerText;
-        newAdmin.name = currentView.querySelector('#name').value;
-        newAdmin.email = currentView.querySelector('#email').value;
+        newAdmin.name = currentView.querySelector('#a-name').value;
+        newAdmin.email = currentView.querySelector('#a-email').value;
         newAdmin.verified = false;
         newAdmin.verifiedTime = null;
         newAdmin.accessCustom = {
@@ -473,8 +473,8 @@ if (current.endsWith('admin.html')) {
         currentView.classList.remove('show');
 
         // 表單初始化
-        currentView.querySelector('#name').value = '';
-        currentView.querySelector('#email').value = '';
+        currentView.querySelector('#a-name').value = '';
+        currentView.querySelector('#a-email').value = '';
         currentView.querySelector('.identity').innerText = '-Choose access level-';
         Array.from(currentView.querySelectorAll('.access-custom [type="checkbox"]')).forEach(item => {
           item.checked = false;
